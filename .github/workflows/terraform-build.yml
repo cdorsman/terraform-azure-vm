@@ -95,6 +95,9 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Get public key
+        run: curl https://github.com/cdorsman.keys > /tmp/id_rsa.pub
+
       # 5. Download plan artifact
       - name: Download Plan
         uses: actions/download-artifact@v4
