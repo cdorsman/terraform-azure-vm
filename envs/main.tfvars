@@ -66,5 +66,11 @@ db_nsg_rules = [
 ]
 
 # Compute
-admin_username = "azureuser"
-ssh_key_path   = "~/.ssh/id_rsa.pub"
+admin_ssh_key {
+    username   = "azureuser"
+    public_key = file(var.ssh_key_path)
+}
+
+
+# admin_username = "azureuser"
+# ssh_key_path   = "~/.ssh/id_rsa.pub"
