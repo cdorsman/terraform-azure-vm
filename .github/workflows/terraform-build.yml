@@ -79,6 +79,8 @@ jobs:
       # 2. Setup Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.5
 
       # 3. Azure Login
       - name: Azure Login
