@@ -47,7 +47,7 @@ jobs:
       - name: Terraform Plan
         env:
           TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        run: terraform plan -var-file="envs/${{ github.ref_name }}.tfvars" -out=tfplan
+        run: terraform plan -input=false -var-file="envs/${{ github.ref_name }}.tfvars" -out=tfplan
 
       # 7. Upload plan as artifact for apply job
       - name: Upload Plan
