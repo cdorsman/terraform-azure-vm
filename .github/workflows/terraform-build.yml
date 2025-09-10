@@ -43,11 +43,14 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
+      - name: Get public key
+        run: curl https://github.com/cdorsman.keys > /tmp/id_rsa.pub
+
       # 6. Terraform Plan
       - name: Terraform Plan
         env:
           TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        run: terraform plan -input=false -var-file="envs/${{ github.ref_name }}.tfvars" -out=tfplan
+        run: terraform plan -input=false -var-file="envs/${{ github.ref_name }}.tfvars" -var="ssh_key_path=/tmp/id_rsa.pub" -out=tfplan
 
       # 7. Upload plan as artifact for apply job
       - name: Upload Plan
