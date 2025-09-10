@@ -45,7 +45,7 @@ jobs:
 
       # 6. Terraform Plan
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
+        run: terraform plan -var-file="${{ github.ref_name }}.tfvars" -out=tfplan
 
       # 7. Upload plan as artifact for apply job
       - name: Upload Plan
