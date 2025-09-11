@@ -1,13 +1,13 @@
 module "rg" {
   source   = "./modules/resource_group"
-  providers = { azurerm = azurerm }
+  providers = { azurerm = hashicorp/azurerm }
   rg_name  = var.rg_name
   location = var.location
 }
 
 module "network" {
   source        = "./modules/network"
-  providers = { azurerm = azurerm }
+  providers = { azurerm = hashicorp/azurerm }
   rg_name       = module.rg.name
   location      = module.rg.location
   vnet_name     = var.vnet_name
@@ -17,7 +17,7 @@ module "network" {
 
 module "nsg_web" {
   source    = "./modules/nsg"
-  providers = { azurerm = azurerm }
+  providers = { azurerm = hashicorp/azurerm }
   rg_name   = module.rg.name
   location  = module.rg.location
   nsg_name  = "WebSubnetNSG"
@@ -27,7 +27,7 @@ module "nsg_web" {
 
 module "nsg_db" {
   source    = "./modules/nsg"
-  providers = { azurerm = azurerm }
+  providers = { azurerm = hashicorp/azurerm }
   rg_name   = module.rg.name
   location  = module.rg.location
   nsg_name  = "DBSubnetNSG"
@@ -37,7 +37,7 @@ module "nsg_db" {
 
 module "vmss" {
   source         = "./modules/vmss"
-  providers = { azurerm = azurerm }
+  providers = { azurerm = hashicorp/azurerm }
   rg_name        = module.rg.name
   location       = module.rg.location
   subnet_id      = module.network.subnet_ids["web"]
