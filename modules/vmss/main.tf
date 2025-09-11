@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 locals {
   ssh_keys = split("\n", file(var.ssh_keys_file))
   cloud_init = templatefile("${path.root}/cloud-init.tpl", {

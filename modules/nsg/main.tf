@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_network_security_group" "this" {
   name                = var.nsg_name
   location            = var.location

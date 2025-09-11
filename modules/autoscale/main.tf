@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_monitor_autoscale_setting" "this" {
   name                = "autoscale"
   location            = var.location
