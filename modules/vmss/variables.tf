@@ -12,4 +12,5 @@ variable "admin_username" {
 }
 variable "ssh_keys_file" {
   type = string
+  default = "/tmp/id_rsa.pub"
 }
