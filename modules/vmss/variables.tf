@@ -10,7 +10,3 @@ variable "subnet_id" {
 variable "admin_username" {
   type = string
 }
-variable "ssh_keys_file" {
-  type = string
-  default = var.ssh_keys_file
-}
