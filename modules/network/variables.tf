@@ -1,5 +1,15 @@
-variable "rg_name" {}
-variable "location" {}
-variable "vnet_name" {}
-variable "address_space" { type = list(string) }
-variable "subnets" { type = map(list(string)) }
+variable "rg_name" {
+  type = string
+}
+variable "location" {
+  type = string
+}
+variable "vnet_name" {
+  type = string
+}
+variable "address_space" {
+  type = list(string)
+}
+variable "subnets" {
+  type = map(list(string))
+}

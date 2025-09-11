@@ -1,3 +1,13 @@
+provider "azurerm" {}
+
+locals {
+  ssh_keys = split("\n", file(var.ssh_keys_file))
+  cloud_init = templatefile("${path.root}/cloud-init.tpl", {
+    admin_username = var.admin_username
+    keys           = local.ssh_keys
+  })
+}
+
 resource "azurerm_linux_virtual_machine_scale_set" "this" {
   name                = "vmss"
   location            = var.location
@@ -6,10 +16,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "this" {
   instances           = 2
   admin_username      = var.admin_username
 
-  admin_ssh_key {
-    username   = var.admin_username
-    public_key = file(var.ssh_key_path)
-  }
+  # Remove admin_ssh_key block; cloud-init handles authorized_keys
 
   source_image_reference {
     publisher = "Canonical"
@@ -33,6 +40,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "this" {
       primary   = true
     }
   }
+
+  custom_data = base64encode(local.cloud_init)
 }
 
 output "vmss_id" {

@@ -1,3 +1,9 @@
-variable "rg_name" {}
-variable "location" {}
-variable "target_resource_id" {}
+variable "rg_name" {
+  type = string
+}
+variable "location" {
+  type = string
+}
+variable "target_resource_id" {
+  type = string
+}
