@@ -15,9 +15,11 @@ terraform {
       version = "~>3.0"
     }
   }
-}
 
-provider "azurerm" {
+  provider "azurerm" {
   features = {}
   subscription_id = var.subscription_id
+  }
 }
+
+
