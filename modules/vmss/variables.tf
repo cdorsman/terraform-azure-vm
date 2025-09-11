@@ -12,10 +12,5 @@ variable "admin_username" {
 }
 variable "ssh_keys_file" {
   type = string
-  default = "/tmp/id_rsa.pub"
-}
-
-variable "ssh_keys_path" {
-  type = string
-  default = file("/tmp/id_rsa.pub")
+  default = var.ssh_keys_file
 }
