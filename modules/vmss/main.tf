@@ -33,8 +33,6 @@ resource "azurerm_linux_virtual_machine_scale_set" "this" {
       primary   = true
     }
   }
-
-  custom_data = base64encode(local.cloud_init)
 }
 
 output "vmss_id" {
