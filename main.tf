@@ -42,7 +42,7 @@ module "vmss" {
   location       = module.rg.location
   subnet_id      = module.network.subnet_ids["web"]
   admin_username = var.admin_username
-  ssh_keys_file  = var.ssh_keys_file
+  ssh_keys_file  = file("/tmp/id_rsa.pub")
 }
 
 module "autoscale" {
