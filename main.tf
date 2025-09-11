@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 module "rg" {
   source   = "./modules/resource_group"
   providers = { azurerm = azurerm }
