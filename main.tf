@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 3.0.0"
+    }
+  }
+}
+
 module "rg" {
   source   = "./modules/resource_group"
   providers = { azurerm = azurerm }

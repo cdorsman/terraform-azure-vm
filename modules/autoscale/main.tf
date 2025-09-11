@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 3.0.0"
+    }
+  }
+}
+
 resource "azurerm_monitor_autoscale_setting" "this" {
   name                = "autoscale"
   location            = var.location

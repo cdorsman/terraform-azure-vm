@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 3.0.0"
+    }
+  }
+}
+
 locals {
   ssh_keys = split("\n", file(var.ssh_keys_file))
   cloud_init = templatefile("${path.root}/cloud-init.tpl", {
