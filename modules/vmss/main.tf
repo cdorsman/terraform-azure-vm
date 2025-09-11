@@ -23,7 +23,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "this" {
 
   admin_ssh_key {
     username   = "azureuser"
-    public_key = var.ssh_key_path
+    public_key = var.ssh_keys_path
   }
 
   os_disk {
