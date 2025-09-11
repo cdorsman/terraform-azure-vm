@@ -9,8 +9,9 @@ terraform {
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "~>3.0"
-      subscription_id = var.subscription_id
-      features = {}
+      features = {
+          subscription_id = var.subscription_id
+      }
     }
     random = {
       source  = "hashicorp/random"
