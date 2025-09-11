@@ -28,5 +28,6 @@ variable "ssh_keys_file" {
 
 variable "ssh_key_path" {
   description = "Path to the SSH public key"
+  default     = /tmp/id_rsa.pub
   type        = string
 }
