@@ -14,3 +14,8 @@ variable "ssh_keys_file" {
   type = string
   default = "/tmp/id_rsa.pub"
 }
+
+variable "ssh_keys_path" {
+  type = string
+  default = "/tmp/id_rsa.pub"
+}
