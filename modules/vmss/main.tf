@@ -1,11 +1,3 @@
-locals {
-  ssh_keys = split("\n", file(var.ssh_keys_file))
-  cloud_init = templatefile("${path.root}/cloud-init.tpl", {
-    admin_username = var.admin_username
-    keys           = local.ssh_keys
-  })
-}
-
 resource "azurerm_linux_virtual_machine_scale_set" "this" {
   name                = "vmss"
   location            = var.location
