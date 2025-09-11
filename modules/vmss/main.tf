@@ -16,8 +16,6 @@ resource "azurerm_linux_virtual_machine_scale_set" "this" {
   instances           = 2
   admin_username      = var.admin_username
 
-  # Remove admin_ssh_key block; cloud-init handles authorized_keys
-
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"
