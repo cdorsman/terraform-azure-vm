@@ -61,7 +61,6 @@ module "vmss" {
 
 module "autoscale" {
   source             = "./modules/autoscale"
-  providers = { azurerm = azurerm }
   rg_name            = module.rg.name
   location           = module.rg.location
   target_resource_id = module.vmss.vmss_id
