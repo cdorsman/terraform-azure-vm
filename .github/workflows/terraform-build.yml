@@ -42,6 +42,9 @@ jobs:
           subscription-id: ${{ env.ARM_SUBSCRIPTION_ID }}
           auth-type: ${{ env.AUTH_TYPE }}
 
+      - name: Get public key
+        run: curl https://github.com/cdorsman.keys > /tmp/id_rsa.pub
+
       # 4. Terraform Init
       - name: Terraform Init
         run: terraform init
@@ -49,9 +52,6 @@ jobs:
       # 5. Terraform Validate
       - name: Terraform Validate
         run: terraform validate
-
-      - name: Get public key
-        run: curl https://github.com/cdorsman.keys > /tmp/id_rsa.pub
 
       # 6. Terraform Plan
       - name: Terraform Plan
