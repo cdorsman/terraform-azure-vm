@@ -1,3 +1,8 @@
+provider "azurerm" {
+  features = {}
+  subscription_id = var.subscription_id
+}
+
 module "rg" {
   source   = "./modules/resource_group"
   rg_name  = var.rg_name
