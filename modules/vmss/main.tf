@@ -1,4 +1,6 @@
-provider "azurerm" {}
+provider "azurerm" {
+ source = "hashicorp/azurerm"
+}
 
 locals {
   ssh_keys = split("\n", file(var.ssh_keys_file))

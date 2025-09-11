@@ -1,6 +1,6 @@
 azurerm = {
-│ source = "hashicorp/azurerm"
-│}
+ source = "hashicorp/azurerm"
+}
 
 resource "azurerm_monitor_autoscale_setting" "this" {
   name                = "autoscale"
