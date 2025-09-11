@@ -1,4 +1,6 @@
-provider "azurerm" { features {} }
+provider "azurerm" {
+  features {}
+}
 
 locals {
   ssh_keys = split("\n", file(var.ssh_keys_file))
