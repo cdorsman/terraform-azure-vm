@@ -25,3 +25,8 @@ variable "admin_username" {
 variable "ssh_keys_file" {
   type = string
 }
+
+variable "ssh_key_path" {
+  description = "Path to the SSH public key"
+  type        = string
+}
