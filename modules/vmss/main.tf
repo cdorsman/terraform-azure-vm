@@ -21,6 +21,11 @@ resource "azurerm_linux_virtual_machine_scale_set" "this" {
     version   = "latest"
   }
 
+  admin_ssh_key {
+    username   = "azureuser"
+    public_key = var.ssh_key_path
+  }
+
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
