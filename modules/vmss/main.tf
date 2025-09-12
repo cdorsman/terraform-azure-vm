@@ -1,3 +1,8 @@
+resource "tls_private_key" "ssh" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
 resource "azurerm_linux_virtual_machine_scale_set" "this" {
   name                = "vmss"
   location            = var.location
@@ -15,7 +20,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "this" {
 
   admin_ssh_key {
     username   = "azureuser"
-    public_key = file("/tmp/id_rsa.pub")
+    public_key = tls_private_key.ssh.public_key_openssh
   }
 
   os_disk {
